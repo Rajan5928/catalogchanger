@@ -35,7 +35,7 @@ const catalogs = [
 ];
 
 class App extends Component {
-
+  intervalId=0;
   constructor(props) {
     super(props);
     this.state = {
@@ -79,22 +79,30 @@ class App extends Component {
   }
 
   slideChange(event) {
-     setInterval(() => {
-       if ((catalogs.indexOf(this.state.catalogSelected) + 1) > 3) {
-         this.setState({ catalogSelected: catalogs[0] })
-       }
-       else {
-         this.setState({ catalogSelected: catalogs[catalogs.indexOf(this.state.catalogSelected) + 1] });
-       }
-     }, 3000);
+    if(this.state.slideActive === false){
+      this.setState({ slideActive:true});
+      this.intervalId = setInterval(() => {
+        if ((catalogs.indexOf(this.state.catalogSelected) + 1) > 3) {
+          this.setState({ catalogSelected: catalogs[0] })
+        }
+        else {
+          this.setState({ catalogSelected: catalogs[catalogs.indexOf(this.state.catalogSelected) + 1] });
+        }
+      }, 3000);
+    }
+    else {
+      this.setState({ slideActive: false });
+        clearInterval(this.intervalId);
+    }
+     
   }
-  resetSlideTimer(isActive = false) {
+  // resetSlideTimer(isActive = false) {
 
-  }
+  // }
 
-  onSlideChange() {
+  // onSlideChange() {
 
-  }
+  // }
 
   render() {
     return (
