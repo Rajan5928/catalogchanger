@@ -2,10 +2,10 @@ import React, { Component, Fragment } from 'react';
 import './Thumbs.css';
 
 class Thumbs extends Component {
-    constructor(props){
-        super(props);
-        // this.onImageSelect = this.onImageSelect.bind(this);
-    }
+    // constructor(props){
+    //     super(props);
+    //     // this.onImageSelect = this.onImageSelect.bind(this);
+    // }
 
     // onImageSelect(event) {
     //     this.props.selectedCatalog(event);

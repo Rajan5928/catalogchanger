@@ -56,7 +56,7 @@ class App extends Component {
   }
 
   selectedCatalog(index) {
-    this.setState({ catalogSelected: catalogs[index] }, ()=>console.log(catalogs.indexOf(this.state.catalogSelected)));
+    this.setState({ catalogSelected: catalogs[index] }, );
     this.setState({currentIndex : index})
   }
 
@@ -86,7 +86,7 @@ class App extends Component {
        else {
          this.setState({ catalogSelected: catalogs[catalogs.indexOf(this.state.catalogSelected) + 1] });
        }
-     }, 3000);;
+     }, 3000);
   }
   resetSlideTimer(isActive = false) {
 
