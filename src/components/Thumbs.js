@@ -4,19 +4,19 @@ import './Thumbs.css';
 class Thumbs extends Component {
     constructor(props){
         super(props);
-        this.onImageSelect = this.onImageSelect.bind(this);
+        // this.onImageSelect = this.onImageSelect.bind(this);
     }
 
-    onImageSelect(event) {
-
-    }
+    // onImageSelect(event) {
+    //     this.props.selectedCatalog(event);
+    // }
 
     render() {
         return (
             <Fragment>
                 {
                     this.props.items.map((catalog,idx) => (
-                        <span className="catalog item thumb-select"  onClick={this.onImageSelect} id={idx} key={idx} data-testid={'thumb_outer_'+idx}>
+                        <span className="catalog item thumb-select" onClick={(event) => this.props.selectedCatalog(event.target.id)} id={idx} key={idx} data-testid={'thumb_outer_'+idx}>
                             <span className={"thumb-outer " + (idx === this.props.currentIndex ? 'thumb-selected' : ' ')} data-testid={'thumb_'+idx}>
                                 <span className="thumb" id={idx} style={{ backgroundImage: 'url('+ catalog.thumb + ')'}} data-testid={'thumb_img_'+idx} />
                             </span>

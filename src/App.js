@@ -42,7 +42,7 @@ class App extends Component {
       title: 'Catalog Viewer',
       catalogs: [...catalogs],
       currentIndex: -1,
-      catalogSelected: catalogs[3],
+      catalogSelected: catalogs[0],
       slideActive: false,
       slideTimer: null,
       slideDuration: 3000,
@@ -56,21 +56,38 @@ class App extends Component {
   }
 
   selectedCatalog(index) {
-
+    this.setState({ catalogSelected: catalogs[index] }, ()=>console.log(catalogs.indexOf(this.state.catalogSelected)));
+    this.setState({currentIndex : index})
   }
 
   previousClick() {
-
+    if ((catalogs.indexOf(this.state.catalogSelected) - 1) < 0 ) {
+      this.setState({ catalogSelected: catalogs[3] })
+    }
+    else {
+      this.setState({ catalogSelected: catalogs[catalogs.indexOf(this.state.catalogSelected) - 1] });
+    }
   }
 
   nextClick() {
-
+    if ((catalogs.indexOf(this.state.catalogSelected) + 1)>3){
+      this.setState({ catalogSelected: catalogs[0] })
+    }
+    else{
+      this.setState({ catalogSelected: catalogs[catalogs.indexOf(this.state.catalogSelected) + 1] });
+    }
   }
 
   slideChange(event) {
-
+     setInterval(() => {
+       if ((catalogs.indexOf(this.state.catalogSelected) + 1) > 3) {
+         this.setState({ catalogSelected: catalogs[0] })
+       }
+       else {
+         this.setState({ catalogSelected: catalogs[catalogs.indexOf(this.state.catalogSelected) + 1] });
+       }
+     }, 3000);;
   }
-
   resetSlideTimer(isActive = false) {
 
   }
