@@ -51,8 +51,8 @@ class App extends Component {
     this.previousClick = this.previousClick.bind(this);
     this.nextClick = this.nextClick.bind(this);
     this.slideChange = this.slideChange.bind(this);
-    this.resetSlideTimer = this.resetSlideTimer.bind(this);
-    this.onSlideChange = this.onSlideChange.bind(this);
+    // this.resetSlideTimer = this.resetSlideTimer.bind(this);
+    // this.onSlideChange = this.onSlideChange.bind(this);
   }
 
   selectedCatalog(index) {
